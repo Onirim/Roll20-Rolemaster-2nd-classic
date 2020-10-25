@@ -124,15 +124,15 @@
 		<label data-i18n="primaryskills" style="width: 135px; padding-left: 5px;" class="header">Comp. principales</label><label data-i18n="attributemod-abbr" style="width: 70px;" class="header">Mod Carac.</label><label data-i18n="cost" style="width: 30px;" class="header">Coût</label><label data-i18n="profession-abbr" style="width: 25px;" class="header">Prof.</label><label data-i18n="nbranks" style="width: 44px;" class="header">#Rangs</label><label data-i18n="dev-abbr" style="width: 30px; text-align: center;" class="header">Dev.</label><label data-i18n="base-abbr" style="width: 35px;" class="header">Base</label><label data-i18n="attribute-abbr" style="width: 35px;" class="header">Carac.</label><label data-i18n="profession-abbr" style="width: 25px;" class="header">Prof.</label><label data-i18n="miscellaneous-abbr" style="width: 30px;" class="header">Div.</label><label data-i18n="item-abbr" style="width: 30px;" class="header">Obj.</label><label data-i18n="total-abbr" style="width: 34px;" class="header">TOTAL</label>
 		
         <fieldset class="repeating_skills">
-            <input type="text" name="attr_skillname" style="width: 150px;" /><input type="text" name='attr_modcarac_skillname' class="transparent" style="width: 80px;"><input type="text" name='attr_cout_skillname' class="transparent" style="width: 40px;"><input type="text" name='attr_prof_skillname' class="transparent" style="width: 35px;"><input type="number" name='attr_nbrangs_skillname' style="width: 50px; text-align: center;"><input type="number" name='attr_dev_skillname' style="width: 40px; text-align: center;">
-			<input type="text" name='attr_base_skillname' class="transparent" style="width: 45px;"><input type="text" name='attr_carac_skillname' class="transparent" style="width: 45px;"><input type="text" name='attr_profbonus_skillname' class="transparent"  style="width: 35px;"><input type="text" name='attr_div_skillname' class="transparent" style="width: 40px;"><input type="text" name='attr_obj_skillname' class="transparent" style="width: 40px;"><input type="text" name='attr_total_skillname' value="(@{base_skillname}+@{carac_skillname}+@{profbonus_skillname}+@{div_skillname}+@{obj_skillname})" disabled="true" style="width: 45px; text-align: center;"><button type='roll' name='roll_testattack' value='&{template:custom} {{title=@{skillname}}} {{resulat=[[1d100!>96cs>96cf<5 + @{total_skillname}]]}}'></button>
+            <input type="text" name="attr_skillname" style="width: 150px;" /><input type="text" name='attr_modcarac_skillname' class="transparent" style="width: 80px;"><input type="text" name='attr_cout_skillname' class="transparent" style="width: 40px;"><input type="text" name='attr_prof_skillname' class="transparent" style="width: 35px;" value="0"><input type="number" name='attr_nbrangs_skillname' style="width: 50px; text-align: center;"><input type="number" name='attr_dev_skillname' style="width: 40px; text-align: center;">
+			<input type="text" name='attr_base_skillname' class="transparent" style="width: 45px;" value="0"><input type="text" name='attr_carac_skillname' class="transparent" style="width: 45px;" value="0"><input type="text" name='attr_profbonus_skillname' class="transparent" style="width: 35px;"><input type="text" name='attr_div_skillname' class="transparent" style="width: 40px;" value="0"><input type="text" name='attr_obj_skillname' class="transparent" style="width: 40px;" value="0"><input type="text" name='attr_total_skillname' value="(@{base_skillname}+@{carac_skillname}+@{profbonus_skillname}+@{div_skillname}+@{obj_skillname})" disabled="true" style="width: 45px; text-align: center;"><button type='roll' name='roll_testattack' value='&{template:custom} {{title=@{skillname}}} {{resulat=[[1d100!>96cs>96cf<5 + @{total_skillname}]]}}'></button>
         </fieldset>
 		<br>	
 		<label data-i18n="secondaryskills" style="width: 135px; padding-left: 5px;" class="header">Comp. secondaires</label><label data-i18n="attributemod-abbr" style="width: 70px;" class="header">Mod Carac.</label><label data-i18n="cost" style="width: 30px;" class="header">Coût</label><label data-i18n="profession-abbr" style="width: 25px;" class="header">Prof.</label><label data-i18n="nbranks" style="width: 44px;" class="header">#Rangs</label><label data-i18n="dev-abbr" style="width: 30px; text-align: center;" class="header">Dev.</label><label data-i18n="base-abbr" style="width: 35px;" class="header">Base</label><label data-i18n="attribute-abbr" style="width: 35px;" class="header">Carac.</label><label data-i18n="profession-abbr" style="width: 25px;" class="header">Prof.</label><label data-i18n="miscellaneous-abbr" style="width: 30px;" class="header">Div.</label><label data-i18n="item-abbr" style="width: 30px;" class="header">Obj.</label><label data-i18n="total-abbr" style="width: 34px;" class="header">TOTAL</label>
 
         <fieldset class="repeating_secondaryskills">
-            <input type="text" name="attr_skillname" style="width: 150px;" /><input type="text" name='attr_modcarac_skillname' class="transparent" style="width: 80px;"><input type="text" name='attr_cout_skillname' class="transparent" style="width: 40px;"><input type="text" name='attr_prof_skillname' class="transparent" style="width: 35px;"><input type="number" name='attr_nbrangs_skillname' style="width: 50px; text-align: center;"><input type="number" name='attr_dev_skillname' style="width: 40px; text-align: center;">
-			<input type="text" name='attr_base_skillname' class="transparent" style="width: 45px;"><input type="text" name='attr_carac_skillname' class="transparent" style="width: 45px;"><input type="text" name='attr_profbonus_skillname' class="transparent"  style="width: 35px;"><input type="text" name='attr_div_skillname' class="transparent" style="width: 40px;"><input type="text" name='attr_obj_skillname' class="transparent" style="width: 40px;"><input type="text" name='attr_total_skillname' value="(@{base_skillname}+@{carac_skillname}+@{profbonus_skillname}+@{div_skillname}+@{obj_skillname})" disabled="true" style="width: 45px; text-align: center;"><button type='roll' name='roll_testattack' value='&{template:custom} {{title=@{skillname}}} {{resulat=[[1d100!>96cs>96cf<5 + @{total_skillname}]]}}'></button>
+            <input type="text" name="attr_skillname" style="width: 150px;" /><input type="text" name='attr_modcarac_skillname' class="transparent" style="width: 80px;"><input type="text" name='attr_cout_skillname' class="transparent" style="width: 40px;"><input type="text" name='attr_prof_skillname' class="transparent" style="width: 35px;" value="0"><input type="number" name='attr_nbrangs_skillname' style="width: 50px; text-align: center;"><input type="number" name='attr_dev_skillname' style="width: 40px; text-align: center;">
+			<input type="text" name='attr_base_skillname' class="transparent" style="width: 45px;" value="0"><input type="text" name='attr_carac_skillname' class="transparent" style="width: 45px;" value="0"><input type="text" name='attr_profbonus_skillname' class="transparent"  style="width: 35px;"><input type="text" name='attr_div_skillname' class="transparent" style="width: 40px;" value="0"><input type="text" name='attr_obj_skillname' class="transparent" style="width: 40px;" value="0"><input type="text" name='attr_total_skillname' value="(@{base_skillname}+@{carac_skillname}+@{profbonus_skillname}+@{div_skillname}+@{obj_skillname})" disabled="true" style="width: 45px; text-align: center;"><button type='roll' name='roll_testattack' value='&{template:custom} {{title=@{skillname}}} {{resulat=[[1d100!>96cs>96cf<5 + @{total_skillname}]]}}'></button>
         </fieldset>
 	</div>
 	
@@ -439,10 +439,45 @@
                 // check to see if calculation is 1 or 0. Use triple equality to match properly.
                 if(check === 0) {
                     const profbonus = prof*level;
-                    output[`repeating_skills_profbonus_skillname: profbonus`] = profbonus;
+                    output[`repeating_skills_${id}_profbonus_skillname`] = profbonus;
                 } else if(check === 1) {
                     const profbonus = prof;
-                    output[`repeating_skills_profbonus_skillname: profbonus`] = profbonus;
+                    output[`repeating_skills_${id}_profbonus_skillname`] = profbonus;
+                }
+            });
+            // save the collected attributes.
+            setAttrs(output);
+        });
+    });    
+});
+
+	on('change:repeating_secondaryskills:prof_skillname change:professionbonuscalcmode change:niveau', () => {
+    getSectionIDs('repeating_secondaryskills', ids => {
+        // get an array of names for the skillname attribute across all rows.
+        // getSectionIDs gives an array of the row ids.
+        const fieldnames = [];
+        ids.forEach(id => fieldnames.push(`repeating_secondaryskills_${id}_prof_skillname`));
+
+        // now getAttrs can use that array to get the attributes from all rows
+        getAttrs([...fieldnames,'niveau', 'professionbonuscalcmode'], values => {
+            // get the values of the attributes outside the repeating section
+            const level = parseInt( values.niveau) || 0;
+            const check = parseInt( values.professionbonuscalcmode) || 0;
+            
+            // create a variable to hold all the stats that need to be updated
+            const output = {};
+            // now loop through the row ids again
+            ids.forEach(id => {
+                // get the value of the prof_skillname attribute for this specific row.
+                const prof = parseInt( values[`repeating_secondaryskills_${id}_prof_skillname`]) || 0;
+                
+                // check to see if calculation is 1 or 0. Use triple equality to match properly.
+                if(check === 0) {
+                    const profbonus = prof*level;
+                    output[`repeating_secondaryskills_${id}_profbonus_skillname`] = profbonus;
+                } else if(check === 1) {
+                    const profbonus = prof;
+                    output[`repeating_secondaryskills_${id}_profbonus_skillname`] = profbonus;
                 }
             });
             // save the collected attributes.
