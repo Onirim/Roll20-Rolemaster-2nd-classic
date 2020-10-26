@@ -2,7 +2,7 @@
     <div class="col">
     	<label data-i18n="race">Race</label><input type="text" name="attr_race" />
 		<label data-i18n="profession">Profession</label><input type="text" name="attr_profession" />
-		<label data-i18n="level">Niveau</label><input type="number" name="attr_niveau" class='sheet-short'/>
+		<label data-i18n="level">Niveau</label><input type="number" name="attr_niveau" class='sheet-short' value="1"/>
 		<label data-i18n="experience" style="width: 41px;">Exp.</label><input type="text" name="attr_experience" style="width: 70px;"/>
 	<div>
     <button data-i18n="character" type="action" name="act_character" style="margin-top: 2px;" >Personnage</button>
@@ -144,7 +144,7 @@
 		<br>
 		<label data-i18n="resistances" style="width: 85px; padding-left: 5px;" class="header">Résistances</label><label data-i18n="base-abbr" style="width: 30px;" class="header">Base</label><label data-i18n="race-abbr" style="width: 30px;" class="header">Race</label><label data-i18n="miscellaneous" style="width: 30px;" class="header">Divers</label><label data-i18n="total-abbr" style="width: 30px;" class="header">TOTAL</label>
 		<fieldset class="repeating_resistances" >
-			<input type="text" name="attr_resistancename" style="width: 99px;" /><input type="text" name='attr_base_resistancename' class="transparent" style="width: 40px;"><input type="text" name='attr_race_resistancename' class="transparent" style="width: 40px;"><input type="text" name='attr_divers_resistancename' class="transparent" style="width: 40px;"><input type="text" name='attr_total_resistancename' value="(@{base_resistancename}+@{race_resistancename}+@{divers_resistancename})" disabled="true" class='sheet-short' style="width: 40px;"><button type='roll' name='roll_testattack' value='&{template:custom} {{title=^{resistancecheck} @{resistancename}}} {{result=[[1d100!>96cs>96cf<5 + @{total_resistancename}]]}}'></button>
+			<input type="text" name="attr_resistancename" style="width: 99px;" /><input type="text" name='attr_base_resistancename' class="transparent" style="width: 40px;" value="0"><input type="text" name='attr_race_resistancename' class="transparent" style="width: 40px;" value="0"><input type="text" name='attr_divers_resistancename' class="transparent" style="width: 40px;" value="0"><input type="text" name='attr_total_resistancename' value="(@{base_resistancename}+@{race_resistancename}+@{divers_resistancename})" disabled="true" class='sheet-short' style="width: 40px;"><button type='roll' name='roll_testattack' value='&{template:custom} {{title=^{resistancecheck} @{resistancename}}} {{result=[[1d100!>96cs>96cf<5 + @{total_resistancename}]]}}'></button>
 		</fieldset>
 		<br>
 		<label data-i18n="notes" style="width: 274px; padding-left: 5px;" class="header">Notes</label>
@@ -394,27 +394,6 @@
 		});
 	});
 	
-	<!-- on('change:repeating_skills change:professionbonuscalcmode change:niveau', () => { -->
-		<!-- getAttrs(['repeating_skills_prof_skillname','niveau', 'professionbonuscalcmode'], values => { -->
-			<!-- const prof = parseInt( values.repeating_skills_prof_skillname) || 0; -->
-			<!-- const level = parseInt( values.niveau) || 0; -->
-			<!-- const check = parseInt( values.professionbonuscalcmode) || 0; -->
-			<!-- // check to see if calculation is on or off. If off, end the sheet worker. -->
-			<!-- if(check==0) { -->
-				<!-- const profbonus = prof*level; -->
-				<!-- setAttrs({ -->
-				<!-- repeating_skills_profbonus_skillname: profbonus -->
-			<!-- }); -->
-			<!-- } -->
-			<!-- else if(check==1) { -->
-				<!-- const profbonus = prof; -->
-				<!-- setAttrs({ -->
-				<!-- repeating_skills_profbonus_skillname: profbonus -->
-			<!-- }); -->
-			<!-- } -->
-			<!-- else return; -->
-		<!-- }); -->
-	<!-- }); -->
 	
 	on('change:repeating_skills:prof_skillname change:professionbonuscalcmode change:niveau', () => {
     getSectionIDs('repeating_skills', ids => {
@@ -486,28 +465,7 @@
     });    
 });
 	
-		<!-- on('change:repeating_secondaryskills change:professionbonuscalcmode change:niveau', () => { -->
-		<!-- getAttrs(['repeating_secondaryskills_prof_skillname','niveau', 'professionbonuscalcmode'], values => { -->
-			<!-- const prof = parseInt( values.repeating_secondaryskills_prof_skillname) || 0; -->
-			<!-- const level = parseInt( values.niveau) || 0; -->
-			<!-- const check = parseInt( values.professionbonuscalcmode) || 0; -->
-			<!-- // check to see if calculation is on or off. If off, end the sheet worker. -->
-			<!-- if(check==0) { -->
-				<!-- const profbonus = prof*level; -->
-				<!-- setAttrs({ -->
-				<!-- repeating_secondaryskills_profbonus_skillname: profbonus -->
-			<!-- }); -->
-			<!-- } -->
-			<!-- else if(check==1) { -->
-				<!-- const profbonus = prof; -->
-				<!-- setAttrs({ -->
-				<!-- repeating_secondaryskills_profbonus_skillname: profbonus -->
-			<!-- }); -->
-			<!-- } -->
-			<!-- else return; -->
-		<!-- }); -->
-	<!-- }); -->
-	
+
 </script>
 
 

@@ -8,7 +8,7 @@
 		[
 				{
 					"attribute": "totalhpcalculation",
-					"displayname": "Type of Total HP calculations: ",
+					"displayname": "Mode of Total HP calculations: ",
 					"type": "select",
 					"options": [
 						"Legacy calculation|1",
@@ -16,6 +16,17 @@
 					],
 					"default": "1",
 					"description": "Choose the Total HP calculation. In Legacy, the Total HP equals the Base HP + Base HP * (constitution bonus / 100). If you choose No Calculations, Total HP is not automatically calculated and you will need to enter the value manually. If you do that, you don't have to use the Base HP value."
+				},
+				{
+					"attribute": "professionbonuscalcmode",
+					"displayname": "Mode of professional bonus calculations: ",
+					"type": "select",
+					"options": [
+						"Per level|0",
+						"Flat bonus|1"
+					],
+					"default": "0",
+					"description": "Choose the mode of professional bonus calculations. By the legacy rules, the professional bonus is multiplied by the character level. You can also choice the flat bonus option, in this case, the professional bonus don't scale with the caracter level."
 				}
 		]
 }
