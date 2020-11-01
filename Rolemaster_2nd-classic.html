@@ -20,13 +20,21 @@
 	<div class="col">
 		<label data-i18n="realmpower">Roy. pouvoir</label><input type="text" name="attr_royaume_pouvoir" />
 		<label data-i18n="powerpoints">Pts pouvoir</label><input type="number" name="attr_pp" class='sheet-short'> / <input type="number" name="attr_pp_max" class='sheet-short'/>
-		<label data-i18n="basehp">PdC base</label><input type="number" name="attr_hp_base" class='sheet-short'> <label data-i18n="totalhp" style="width: 63px;">PdC total</label><input type="number" name="attr_hp_max" class='sheet-short'/>
+		<label data-i18n="basehp">PdC base</label><input type="text" name="attr_hp_base" class='sheet-short'> <label data-i18n="totalhp" style="width: 63px;">PdC total</label><input type="text" name="attr_hp_max" class='sheet-short'/>
 		<label data-i18n="actualhp">PdC actuels</label><input type="number" name="attr_hp" style="width: 70px;"/>
 	</div>
 </div>
 
 <input type='hidden' class='sheet-tabstoggle' name='attr_sheetTab'  value='character'  />
-<input type='hidden' name='attr_totalhpcalculation' value='1'/>
+<input class="sheet-mainBgColor"   name="attr_mainBgColor"   type="hidden" value="default"/>
+<!-- <input type='hidden' name='attr_totalhpcalculation' value='1'/> -->
+
+
+<!-- ##############################################
+     #                CHARACTER TAB               #
+     ############################################## -->
+
+
 <div class='sheet-character'>
 <span>
 <hr/>
@@ -107,12 +115,22 @@
         <div class="col" style="width: 220px;"> 
 			<label data-i18n="languages" style="width: 135px; padding-left: 5px;" class="header">Langages</label><label data-i18n="spoken" style="width: 25px;" class="header">Parlé</label><label data-i18n="writen" style="width: 25px;" class="header">Ecrit</label>
 			<fieldset class="repeating_langages">
-				<input type="text" name="attr_langages" style="width: 150px;" /><input type="number" name="attr_parle_langages" style="width: 35px;" /><input type="number" name="attr_ecrit_langages" style="width: 35px;" />
+				<input type="text" name="attr_langages" style="width: 150px;" /><input type="text" name="attr_parle_langages" style="width: 35px;" /><input type="text" name="attr_ecrit_langages" style="width: 35px;" />
 			</fieldset>
 			<br>
-			<label data-i18n="miscellaneous" style="width: 155px; padding-left: 5px;" class="header">Divers</label>
+			<label data-i18n="miscellaneous" style="width: 205px; padding-left: 5px;" class="header">Divers</label>
+			<label data-i18n="bmr" style="width: 30px;">BMR</label><input type="text" name='attr_bmr' style="width: 52px;">
+				<select name="attr_alluremax"  style="width: 124px;">
+					<option data-i18n="walk" value="1" selected="selected">Marche x1</option>
+					<option data-i18n="fastwalk" value="1.5">Marche rapide x1.5</option>
+					<option data-i18n="run" value="2">Course x2</option>
+					<option data-i18n="sprint" value="3">Sprint x3</option>
+					<option data-i18n="accsprint" value="4">Sprint acc. x4</option>
+					<option data-i18n="dash" value="5">Ruée x5</option>
+				</select>
 			<label data-i18n="hitdice" style="width: 82px;">Dé de vie</label><input type="text" name='attr_des_vie' style="width: 52px;"><button type='roll' name='roll_testattack' value='&{template:custom} {{title=^{hitdice}}} {{^{result}=[[d@{des_vie}]]}}'></button>
-			<label data-i18n="developmentpoints" style="width: 82px;">Pts de Dév</label><input type="text" name='attr_pdev' value="(@{dev_constitution}+@{dev_agilite}+@{dev_autodiscipline}+@{dev_memoire}+@{dev_raisonnement})" disabled="true" style="width: 52px;">
+			<label data-i18n="developmentpoints" style="width: 82px;">Pts de Dév</label><input type="text" name='attr_pdevused' style="width: 52px;"> / <input type="text" name='attr_pdev' style="width: 52px;">
+			<label data-i18n="secundarydevelopmentpoints" style="width: 82px;">PdD Sec.</label><input type="text" name='attr_secpdevused' style="width: 52px;"> / <input type="text" name='attr_secpdev' style="width: 52px;">
 		</div>	
 	</div>
 </div>
@@ -156,6 +174,10 @@
 </div>
 </span>
 
+<!-- ##############################################
+     #               EQUIPMENT TAB                #
+     ############################################## -->
+
 <div class='sheet-equipment'>
 	<span>
 		<div class="2colrow" > 
@@ -184,6 +206,10 @@
 		</div>
 	</span>
 </div>
+
+<!-- ##############################################
+     #                   MAGIC TAB                #
+     ############################################## -->
 
 <div class='sheet-magic'>
 	<span>
@@ -273,22 +299,64 @@
 	</span>
 </div>
 
+<!-- ##############################################
+     #                 SETTINGS TAB               #
+     ############################################## -->
+
 <div class='sheet-settings'>
+
+	<label data-i18n="background-color" style="width: 200px;">Background color</label>:
+    <select name="attr_mainBgColorSelect" value="default">
+        <option value="default"   data-i18n="default"       style="background-color: #eeffff;" selected="selected">Default</option>
+        <option value="white"     data-i18n="white"         style="background-color: #fff;">White</option>
+        <option value="lilac"     data-i18n="lilac"         style="background-color: #fbeeff;">Lilac</option>
+        <option value="grayscale" data-i18n="grayscale"     style="background-color: #f3f3f3;">Grayscale</option>
+        <option value="book"      data-i18n="book"          style="background-color: #f3efe6;">Book</option>
+        <option value="summer"    data-i18n="season-summer" style="background-color: #fef7ed;">Summer</option>
+        <option value="fall"      data-i18n="season-fall"   style="background-color: #fde7e8;">Fall</option>
+        <option value="winter"    data-i18n="season-winter" style="background-color: #fafefe;">Winter</option>
+        <option value="spring"    data-i18n="season-spring" style="background-color: #f8f9f3;">Spring</option>
+    </select>
+	<p data-i18n="backgroundcolordesc">Choose the main color of the character sheet (changes background and headers).</p>
 	
-	<label data-i18n="totalhpcalcmode" style="width: 200px;"/>Total HP calculation mode:</label>
+	<label data-i18n="totalhpcalcmode" style="width: 200px;"/>Total HP calculation mode</label>
 	<select name="attr_totalhpcalculation">
 		<option data-i18n="legacycalc" value="1" selected="selected">Legacy calculations</option>
 		<option data-i18n="nocalc" value="0">No calculations</option>
 	</select>
 	<p data-i18n="hpcalcdescription">Choose the Total HP calculation. In Legacy, the Total HP equals the Base HP + Base HP * (constitution bonus / 100). If you choose No Calculations, Total HP is not automatically calculated and you will need to enter the value manually. If you do that, you don't have to use the Base HP value.</p>
 
-	<label data-i18n="professionbonusmode" style="width: 200px;"/>Profession bonus mode:</label>
-		<select name="attr_professionbonuscalcmode">
+	<label data-i18n="professionbonusmode" style="width: 200px;"/>Profession bonus mode</label>
+	<select name="attr_professionbonuscalcmode">
 		<option data-i18n="legacyprofbonus" value="0" selected="selected">Legacy profession bonus</option>
 		<option data-i18n="flatprofbonus" value="1">Flat profession bonus</option>
 	</select>
-	<p data-i18n="profbonusmodedescription">Placeholder</p>
+	<p data-i18n="profbonusmodedescription">Choose the mode of professional bonus calculations. By the legacy rules, the professional bonus is multiplied by the character level. You can also choice the flat bonus option, in this case, the professional bonus don't scale with the caracter level.</p>
+	
+	<label data-i18n="skilldevmode" style="width: 200px;"/>Skill development mode</label>
+	<select name="attr_skilldevmode">
+		<option data-i18n="legacyskilldev" value="0" selected="selected">Legacy development points</option>
+		<option data-i18n="flatskilldev" value="1">Flat development points</option>
+	</select>
+	<p data-i18n="skilldevmodedescription">Choose the mode of development points acquisition. In legacy rules, development points are derived from the 5 first attributes and depend of the temporary score. You can choose a flat development points too and enter the desired development points manually.</p>
+
+	<label data-i18n="secondaryskilldevmode" style="width: 200px;"/>Secondary skill dev bonus</label>
+	<select name="attr_secondaryskilldevmode">
+		<option data-i18n="flatskilldev" value="0" selected="selected">Fixed development points</option>
+		<option data-i18n="10bonus" value="10" >10% bonus</option>
+		<option data-i18n="20bonus" value="20" >20% bonus</option>
+		<option data-i18n="25bonus" value="25" >25% bonus</option>
+		<option data-i18n="30bonus" value="30" >30% bonus</option>
+		<option data-i18n="40bonus" value="40" >40% bonus</option>
+		<option data-i18n="50bonus" value="50" >50% bonus</option>
+	</select>
+	<p data-i18n="secondaryskilldevmodedescription">Choose the secondary skill development bonus. You can choose a fixed bonus or a pourcentage of the primary development points. The pourcentage bonus work only correctly of you use the legacy development points mode on the above option.</p>
+
 </div>
+
+<!-- ##############################################
+     #          ROLL TEMPLACE SECTION             #
+     ############################################## -->
 
 <rolltemplate class="sheet-rolltemplate-custom">
   <div class="sheet-container sheet-color-{{color}}">
@@ -306,7 +374,15 @@
   </div>
 </rolltemplate>
 
+<!-- ##############################################
+     #               SCRIPTS SECTION              #
+     ############################################## -->
+
+
 <script type="text/worker">
+/* *******************************
+   *         TAB SYSTEM          *
+   *******************************/
     const buttonlist = ["character","equipment","magic", "settings"];
     buttonlist.forEach(button => {
         on(`clicked:${button}`, function() {
@@ -315,7 +391,9 @@
             });
         });
     });
-
+/* *********************************************
+   *    REPEATING LIST TOTAL (WEITHT, DP...)   *
+   *********************************************/
 	const repeatingSum = (destinations, section, fields, ...extras) => {
     const isNumber = value => parseFloat(value).toString() === value.toString();
     const isOption = value => [...checks.valid, ...checks.roundtypes].includes(value);
@@ -373,10 +451,21 @@
         }); 
     }); 
 };
-		on('change:repeating_equipment:poids_equipment remove:repeating_equipment change:weighttotal', function() {
-		repeatingSum('weighttotal','equipment','poids_equipment','round:2');
+	on('change:repeating_equipment:poids_equipment remove:repeating_equipment change:weighttotal', function() {
+	repeatingSum('weighttotal','equipment','poids_equipment','round:2');
 	});
 	
+	on('change:repeating_skills:dev_skillname remove:repeating_skills change:pdevused', function() {
+	repeatingSum('pdevused','skills','dev_skillname');
+	});
+	
+	on('change:repeating_secondaryskills:dev_skillname remove:repeating_secondaryskills change:secpdevused', function() {
+	repeatingSum('secpdevused','secondaryskills','dev_skillname');
+	});
+
+/* *************************
+   *    HP CALCULATIONS    *
+   *************************/	
 	on('change:hp_base change:base_constitution change:race_constitution change:totalhpcalculation change:hp_max', () => {
 		getAttrs(['hp_base','base_constitution','race_constitution','totalhpcalculation'], values => {
 			const base = parseInt( values.hp_base) || 0;
@@ -394,7 +483,53 @@
 		});
 	});
 	
+/* ***************************
+   *   PRIMARY DEV POINTS    *
+   ***************************/	
+	on('change:dev_constitution change:dev_agilite change:dev_autodiscipline change:dev_memoire change:dev_raisonnement change:skilldevmode change:pdev', () => {
+		getAttrs(['dev_constitution','dev_agilite','dev_autodiscipline','dev_memoire','dev_raisonnement', 'skilldevmode'], values => {
+			const devco = parseInt( values.dev_constitution) || 0;
+			const devag = parseInt( values.dev_agilite) || 0;
+			const devad = parseInt( values.dev_autodiscipline) || 0;
+			const devme = parseInt( values.dev_memoire) || 0;
+			const devrs = parseInt( values.dev_raisonnement) || 0;
+			const devmode = parseInt( values.skilldevmode) || 0;
+			// check to see if calculation is on or off. If off, end the sheet worker.
+			if(devmode==1) return;
+			// calculate dev points
+			const devpts = devco+devag+devad+devme+devrs;
+			// update hp attribute on sheet.
+			setAttrs({
+				pdev: devpts
+			});
+		});
+	});
 	
+/* *****************************
+   *   SECONDARY DEV POINTS    *
+   *****************************/	
+	on('change:dev_constitution change:dev_agilite change:dev_autodiscipline change:dev_memoire change:dev_raisonnement change:secondaryskilldevmode change:secpdev', () => {
+		getAttrs(['dev_constitution','dev_agilite','dev_autodiscipline','dev_memoire','dev_raisonnement', 'secondaryskilldevmode'], values => {
+			const secdevco = parseInt( values.dev_constitution) || 0;
+			const secdevag = parseInt( values.dev_agilite) || 0;
+			const secdevad = parseInt( values.dev_autodiscipline) || 0;
+			const secdevme = parseInt( values.dev_memoire) || 0;
+			const secdevrs = parseInt( values.dev_raisonnement) || 0;
+			const secdevmode = parseInt( values.secondaryskilldevmode) || 0;
+			// check to see if calculation is on or off. If off, end the sheet worker.
+			if(secdevmode==0) return;
+			// calculate dev points
+			const secdevpts = Math.round((secdevco+secdevag+secdevad+secdevme+secdevrs) * secdevmode / 100);
+			// update hp attribute on sheet.
+			setAttrs({
+				secpdev: secdevpts
+			});
+		});
+	});
+	
+/* ******************************************
+   *    PROFESSIONAL PRIMARY SKILL BONUS    *
+   ******************************************/
 	on('change:repeating_skills:prof_skillname change:professionbonuscalcmode change:niveau', () => {
     getSectionIDs('repeating_skills', ids => {
         // get an array of names for the skillname attribute across all rows.
@@ -429,6 +564,10 @@
         });
     });    
 });
+
+/* ********************************************
+   *    PROFESSIONAL SECONDARY SKILL BONUS    *
+   ********************************************/
 
 	on('change:repeating_secondaryskills:prof_skillname change:professionbonuscalcmode change:niveau', () => {
     getSectionIDs('repeating_secondaryskills', ids => {
@@ -465,6 +604,17 @@
     });    
 });
 	
+/* ***************************************
+   *    BACKGROUND COLOR SELECTOR        *
+   ***************************************/
+		
+		on("change:mainBgColorSelect", function(event) {
+            getAttrs(["mainBgColorSelect", "mainBgColor"], function(values) {
+                setAttrs({
+                    mainBgColor: values.mainBgColorSelect
+                });
+            });
+        });
 
 </script>
 

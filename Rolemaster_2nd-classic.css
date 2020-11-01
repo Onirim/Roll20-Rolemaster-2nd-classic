@@ -1,7 +1,8 @@
 /* Set the min-width so that when the window is resized the look will stay consistant */
 
 .charsheet {
-	background-color: #cad7e2; 
+/*	background-color: #cad7e2; */
+	background-color: var(--main-bg-color);
 	width: 1000px;
 }
 
@@ -64,7 +65,7 @@ input.sheet-short {
 
 input.sheet-transparent {
 	width: 45px;
-    background-color: #cad7e2;
+    background-color: var(--main-bg-color);
     border: 0px;
     border-bottom: 1px solid #a6b5c3;
     border-radius: 0px;
@@ -143,9 +144,25 @@ input.sheet-toggle-hide:checked ~ div.sheet-body {
     display: none;
 }
 
+/* ********************** COLORS ***************************** */
 
+.charsheet {
+    --main-bg-color: #eeffff;
+    --header-bg-color: #aaeeaa;
+    --divider-color: lightgray;
+    --input-bg-color: #fff;
+}
 
-/* Roll template */
+.sheet-mainBgColor[value="white"]       ~ .sheet-characterSheet { --main-bg-color: #fff;    --divider-color: #90939c; }
+.sheet-mainBgColor[value="grayscale"]   ~ .sheet-characterSheet { --main-bg-color: #f3f3f3; --divider-color: #000; }
+.sheet-mainBgColor[value="book"]        ~ .sheet-characterSheet { --main-bg-color: #f3efe6; --divider-color: #424242; }
+.sheet-mainBgColor[value="summer"]      ~ .sheet-characterSheet { --main-bg-color: #fef7ed; --divider-color: #424242; }
+.sheet-mainBgColor[value="fall"]        ~ .sheet-characterSheet { --main-bg-color: #fde7e8; --divider-color: #cd5142; }
+.sheet-mainBgColor[value="winter"]      ~ .sheet-characterSheet { --main-bg-color: #fafefe; }
+.sheet-mainBgColor[value="spring"]      ~ .sheet-characterSheet { --main-bg-color: #f8f9f3; --divider-color: #000; }
+.sheet-mainBgColor[Value="lilac"]       ~ .sheet-characterSheet { --main-bg-color: #fbeeff; --divider-color: #000; }
+
+/* ***************** Roll template ******************** */
 
 /* Smaller margins - remove these if you want the huge default left margin */
 .sheet-rolltemplate-custom {
